@@ -11,14 +11,11 @@ import com.parse.ParseInstallation;
 public class MyApplication extends Application {
 
     //global variables and statements can be stored here
-    private static final String TWITTER_KEY = "bT8c8HIFgtkTl50ZlFrJfg9Pg";
-    private static final String TWITTER_SECRET = "cHmvGVoGY4WwJ5cZqFmQq4rC5Oz8wKJhfxsybw4X7xZPbrjtZp";
-
     @Override
     public void onCreate() {
         super.onCreate();
         //Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "4r6GuVjJO85qw30CpTtEAcxRKY2xN7ividCi4yQA", "E6a1zZSV37Gs9Mv56L5ylP9cnqVcXbkTWRyFuywX");
+        Parse.initialize(this, "7uE5i8t1LBqdC3f5lmlsuCOaXgrZR4iBDtHXtVCO", "Uqp5HP8zWmKJB8S5N6EzhDzdL8rW6EVZ9emkEAeP");
         ParseInstallation.getCurrentInstallation().saveInBackground();
         // Enable Local Datastore.
     }

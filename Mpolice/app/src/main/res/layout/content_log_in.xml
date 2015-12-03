@@ -21,9 +21,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:inputType="text"
+        android:id="@+id/badge_no"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
@@ -31,34 +31,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText2"
+        android:id="@+id/login"
+        android:layout_below="@+id/pin_no"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/request_pin"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/button"
+        android:id="@+id/request_pin"
+        android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:onClick="requestPin" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/pin_no"
         android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/badge_no"
+        android:layout_alignStart="@+id/badge_no" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pin"
         android:id="@+id/textView3"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/badge_no"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
