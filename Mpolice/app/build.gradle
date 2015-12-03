@@ -24,4 +24,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile files('libs/Parse-1.11.0/Parse-1.11.0.jar')
 }

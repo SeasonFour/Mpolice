@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Mpolice</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_log_in">Log In</string>
+    <string name="enter_bagde_no">Enter badge number</string>
+    <string name="submit">Submit</string>
+    <string name="request_pin">Request for pin.</string>
+    <string name="pin">Enter pin</string>
 </resources>
