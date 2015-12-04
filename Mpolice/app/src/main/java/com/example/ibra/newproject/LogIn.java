@@ -39,12 +39,21 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
 
     List<ParseObject> obj;
     List<String> badgeNumbersList=  new ArrayList<String>();
+    private PrefManager pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in);
+        ParseUtils.verifyParseConfig(this);
+        pref = new PrefManager(getApplicationContext());
+        if (pref.isLoggedIn()){
+            Intent intent = new Intent(LogIn.this,MainActivity.class);
+            startActivity(intent);
 
+            finish();
+        }
+
+        setContentView(R.layout.activity_log_in);
         ButterKnife.inject(this);
         login.setOnClickListener(this);
 
