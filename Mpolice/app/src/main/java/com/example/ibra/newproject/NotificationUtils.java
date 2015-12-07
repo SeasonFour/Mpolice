@@ -67,10 +67,14 @@ public class NotificationUtils {
         }
     }
 
+   // Method checks if the app is in background or not
     public static boolean ifAppIsInBackground(Context context){
         boolean isInBackground = true;
         ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        //there are diffferent ways to check if app is in background for devices with api levels 21 and below
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH){
+
+            //we use getRunningappprocesses for versions above kitkat
             List<ActivityManager.RunningAppProcessInfo> runningProcesses = am.getRunningAppProcesses();
             for (ActivityManager.RunningAppProcessInfo processInfo : runningProcesses){
                 if (processInfo.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND){
@@ -82,6 +86,7 @@ public class NotificationUtils {
                 }
             }
         }else {
+            //For API levels 21 and under we use getrunningtasks(int maxNum) which was then deprecated  in the newer levels(Kitkat and above)
             List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
             ComponentName componentName= taskInfo.get(0).topActivity;
             if (componentName.getPackageName().equals(context.getPackageName())){
