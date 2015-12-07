@@ -26,7 +26,7 @@ public class ParseUtils {
         }
     }
     public static void registerParse(Context context){
-        Parse.initialize(context, "7uE5i8t1LBqdC3f5lmlsuCOaXgrZR4iBDtHXtVCO", "Uqp5HP8zWmKJB8S5N6EzhDzdL8rW6EVZ9emkEAeP");
+        Parse.initialize(context, AppConfig.PARSE_APPLICATION_ID, AppConfig.PARSE_CLIENT_KEY);
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
         ParsePush.subscribeInBackground(AppConfig.PARSE_CHANNEL, new SaveCallback() {
