@@ -10,7 +10,8 @@
     tools:showIn="@layout/activity_report" tools:context="com.example.ibra.newproject.Report">
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -30,65 +31,66 @@
             android:checkedButton="@+id/lunch"
             android:onClick="gender"
             android:orientation="vertical"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2">
 
             <RadioButton
                 android:id="@+id/hitrunBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="type_of_violation"
+                android:onClick="typeOfViolation"
                 android:text="@string/hit_and_run" />
 
             <RadioButton
                 android:id="@+id/accidentBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="type_of_violation"
+                android:onClick="typeOfViolation"
                 android:text="@string/accident" />
 
             <RadioButton
                 android:id="@+id/stolenBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="type_of_violation"
+                android:onClick="typeOfViolation"
                 android:text="@string/stolen" />
             <RadioButton
                 android:id="@+id/otherBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="type_of_violation"
+                android:onClick="typeOfViolation"
                 android:text="@string/other" />
         </RadioGroup>
 
-        <android.support.design.widget.TextInputLayout
+       <!-- <android.support.design.widget.TextInputLayout
             android:id="@+id/editTextLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/radio"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+
+            >-->
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText"
-                android:hint="@string/specify" />
-        </android.support.design.widget.TextInputLayout>
+                android:id="@+id/violationOther"
+                android:hint="@string/specify"
+                android:layout_below="@+id/radio"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/number_plate"
             android:id="@+id/textView4"
-            android:layout_below="@+id/editTextLabel"
+            android:layout_below="@+id/violationOther"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/numberPlate"
             android:layout_below="@+id/textView4"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -98,14 +100,14 @@
             android:layout_height="wrap_content"
             android:text="@string/description"
             android:id="@+id/textView5"
-            android:layout_below="@+id/editText2"
+            android:layout_below="@+id/numberPlate"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
+            android:id="@+id/description"
             android:layout_below="@+id/textView5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -115,14 +117,14 @@
             android:layout_height="wrap_content"
             android:text="@string/location"
             android:id="@+id/textView6"
-            android:layout_below="@+id/editText3"
+            android:layout_below="@+id/description"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
+            android:id="@+id/location"
             android:layout_below="@+id/textView6"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -132,25 +134,35 @@
             android:layout_height="wrap_content"
             android:text="@string/time_last_seen"
             android:id="@+id/textView7"
-            android:layout_below="@+id/editText4"
+            android:layout_below="@+id/location"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <TimePicker
+        <!--<TimePicker
             android:layout_width= "300dp"
             android:layout_height="180dp"
             android:id="@+id/timePicker"
             android:layout_below="@+id/textView7"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true" />-->
 
-        <!--<Button
+
+
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+            android:layout_below="@+id/textView7"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/report"
-            android:id="@+id/button"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />-->
-
+            android:id="@+id/reportBtn"
+            android:layout_below="@+id/time"
+            android:layout_centerHorizontal="true"
+            android:onClick="reportViolation" />
 
     </RelativeLayout>
 </ScrollView>
