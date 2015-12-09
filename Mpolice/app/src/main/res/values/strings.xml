@@ -19,4 +19,8 @@
     <string name="description">Description of the car</string>
     <string name="report">Report violation</string>
     <string name="time_last_seen">Time last seen</string>
+    <string name="title_activity_search_plate">SearchPlate</string>
+    <string name="search_number_plate">Search number plate</string>
+    <string name="search">search icon</string>
+    <string name="scan_number_plate">Scan number plate</string>
 </resources>

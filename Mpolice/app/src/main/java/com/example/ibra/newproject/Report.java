@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 public class Report extends AppCompatActivity {
@@ -22,7 +24,7 @@ public class Report extends AppCompatActivity {
     String Violation,Number_Plate, Description, Location, Time;
 
     ParseObject obj = new ParseObject("Violations");
-
+    ParseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,9 @@ public class Report extends AppCompatActivity {
         etDescription = (EditText) findViewById(R.id.description);
         etLocation = (EditText) findViewById(R.id.location);
         etTime = (EditText) findViewById(R.id.time);
+
+        currentUser = ParseUser.getCurrentUser();
+        Log.d("Current user", ""+currentUser);
 
     }
 
@@ -66,7 +71,7 @@ public class Report extends AppCompatActivity {
                     Toast.makeText(getBaseContext(),
                             "Reporting violation successful",
                             Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                    Intent i = new Intent(getApplicationContext(),SearchPlate.class);
                     startActivity(i);
                 }else {
                     Toast.makeText(getBaseContext(),
