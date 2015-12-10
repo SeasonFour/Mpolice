@@ -23,4 +23,6 @@
     <string name="search_number_plate">Search number plate</string>
     <string name="search">search icon</string>
     <string name="scan_number_plate">Scan number plate</string>
+    <string name="owner">Owner</string>
+    <string name="status">Status</string>
 </resources>
