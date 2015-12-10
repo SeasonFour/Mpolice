@@ -47,7 +47,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
         ParseUtils.verifyParseConfig(this);
         pref = new PrefManager(getApplicationContext());
         if (pref.isLoggedIn()){
-            Intent intent = new Intent(LogIn.this,Report.class);
+            Intent intent = new Intent(LogIn.this,SearchPlate.class);
             startActivity(intent);
 
             finish();
@@ -70,7 +70,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void done(ParseObject parseObject, ParseException e) {
                 if (e == null) {
-                    Intent i = new Intent(LogIn.this, Report.class);
+                    Intent i = new Intent(LogIn.this, SearchPlate.class);
                     startActivity(i);
 
                     int randomPIN = (int) ((Math.random() * 9000) + 1000);
