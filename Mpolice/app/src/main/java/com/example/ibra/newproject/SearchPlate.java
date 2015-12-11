@@ -31,7 +31,6 @@ public class SearchPlate extends AppCompatActivity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 0;
     private Uri fileUri =null;
     ImageView imageV = null;
-    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class SearchPlate extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         imageV = (ImageView) findViewById(R.id.imageView2);
-        //imageV.setImageDrawable(null);
+        imageV.setImageDrawable(null);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,33 +80,17 @@ public class SearchPlate extends AppCompatActivity {
         //InputStream stream= null;
         Uri photoUri = null;
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE){
-            /*if (resultCode == RESULT_OK){
-                try {
-                    if (bitmap != null) {
-                        bitmap.recycle();
-                    }
-
-                    stream = getContentResolver().openInputStream(data.getData());
-                    bitmap = BitmapFactory.decodeStream(stream);
-                    imageV.setImageBitmap(bitmap);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                Toast.makeText(this,"Image saved"+data.getData(),Toast.LENGTH_LONG).show();*/
+            Log.d("Camera", "Success");
                 if (data == null){
                     Toast.makeText(this, "Image saved successfully",
                             Toast.LENGTH_LONG).show();
                     photoUri = fileUri;
+                    showPhoto(photoUri);
                 }else {
                     photoUri = data.getData();
-                    Toast.makeText(this,"Image saved"+data.getData(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"Image saved in: "+data.getData(),Toast.LENGTH_LONG).show();
+                    showPhoto(photoUri);
                 }
-
-                //Image captured and saved
-                Log.d("Camera", "Success");
-                showPhoto(fileUri);
-
-               // Toast.makeText(this,"Image saved" +data.getData(),Toast.LENGTH_LONG).show();
             }else if (resultCode == RESULT_CANCELED){
                 //User cancelled image capture
                 Toast.makeText(this,"Image capture cancelled",Toast.LENGTH_LONG).show();
@@ -118,7 +101,7 @@ public class SearchPlate extends AppCompatActivity {
         }
 
     private void showPhoto(Uri photoUri){
-        File imgFile = new File(String.valueOf(photoUri));
+        File imgFile = new File(photoUri.getPath());
         if (imgFile.exists()){
             Drawable old = imageV.getDrawable();
             if (old !=null){
