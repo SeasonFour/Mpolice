@@ -13,7 +13,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViolationsQuery extends AppCompatActivity {
+public class AllViolations extends AppCompatActivity {
     RecyclerView recyclerV;
     LinearLayoutManager layoutManager;
     List<ParseObject> obj;
@@ -26,7 +26,7 @@ public class ViolationsQuery extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("mpolice", "before recycler");
-        setContentView(R.layout.mpolice_recycler);
+        setContentView(R.layout.all_violations);
 
         recyclerV = (RecyclerView) findViewById(R.id.recycler_violations);
         layoutManager = new LinearLayoutManager(getBaseContext());
@@ -35,7 +35,7 @@ public class ViolationsQuery extends AppCompatActivity {
         Log.d("mpolice","after recycler");
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Violations");
-        query.whereEqualTo("Number_plate","krt 674e");
+        //query.whereEqualTo("Number_plate","krt 674e");
         try {
             obj = query.find();
 

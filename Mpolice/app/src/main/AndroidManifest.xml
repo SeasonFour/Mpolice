@@ -76,7 +76,10 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViolationsQuery" >
+        <activity android:name=".AllViolations" >
+        </activity>
+
+        <activity android:name=".Search" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

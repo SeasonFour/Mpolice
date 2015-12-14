@@ -54,6 +54,9 @@ public class SearchPlate extends AppCompatActivity {
 
     }
 
+
+
+
     public void takePic(View v) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = getOutputPhotoFile();
