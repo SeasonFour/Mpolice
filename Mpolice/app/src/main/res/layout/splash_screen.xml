@@ -13,11 +13,7 @@
         android:contentDescription="splash_image"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
-<!--=======-->
-        <!--android:background=".-->
-        <!--@drawable/police"-->
-        <!--android:contentDescription="splash_image" />-->
-<!--&gt;>>>>>> 37e8a3d76443a4d98c60468c0a5a71ef0727ebdf-->
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +26,6 @@
         android:textColor="#000"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
