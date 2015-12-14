@@ -1,10 +1,13 @@
 package com.example.ibra.newproject;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -13,7 +16,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViolationsQuery extends AppCompatActivity {
+public class Search extends AppCompatActivity {
     RecyclerView recyclerV;
     LinearLayoutManager layoutManager;
     List<ParseObject> obj;
@@ -21,21 +24,31 @@ public class ViolationsQuery extends AppCompatActivity {
     List<String> description = new ArrayList<String>();
     List<String> owner = new ArrayList<String>();
     List<String> status = new ArrayList<String>();
+    EditText search;
+    Button searchBtn;
+    String numberP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("mpolice", "before recycler");
-        setContentView(R.layout.mpolice_recycler);
+        setContentView(R.layout.search);
+
+        search = (EditText) findViewById(R.id.et_search);
+        searchBtn = (Button) findViewById(R.id.searchBtn);
+
+
 
         recyclerV = (RecyclerView) findViewById(R.id.recycler_violations);
         layoutManager = new LinearLayoutManager(getBaseContext());
         recyclerV.setLayoutManager(layoutManager);
         recyclerV.setHasFixedSize(true);
-        Log.d("mpolice","after recycler");
+    }
 
+    public void search(View v){
+        numberP = search.getText().toString().trim();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Violations");
-        query.whereEqualTo("Number_plate","krt 674e");
+        query.whereEqualTo("Number_plate",numberP);
         try {
             obj = query.find();
 
@@ -56,6 +69,4 @@ public class ViolationsQuery extends AppCompatActivity {
 
         Log.d("mpolice", "after adapter");
     }
-
-    //public class getViolations()
 }
