@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -34,8 +35,11 @@ public class AllViolations extends AppCompatActivity {
         recyclerV.setHasFixedSize(true);
         Log.d("mpolice","after recycler");
 
+       getViolations();
+    }
+
+    public void getViolations(){
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Violations");
-        //query.whereEqualTo("Number_plate","krt 674e");
         try {
             obj = query.find();
 
@@ -56,6 +60,4 @@ public class AllViolations extends AppCompatActivity {
 
         Log.d("mpolice", "after adapter");
     }
-
-    //public class getViolations()
 }

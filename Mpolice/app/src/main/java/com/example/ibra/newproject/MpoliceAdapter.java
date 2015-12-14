@@ -30,7 +30,7 @@ public class MpoliceAdapter extends RecyclerView.Adapter<MpoliceAdapter.PoliceHo
 
     @Override
     public PoliceHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mpolice_card,null);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mpolice_card,parent,false);
         PoliceHolder pHolder = new PoliceHolder(v);
 
         return pHolder;

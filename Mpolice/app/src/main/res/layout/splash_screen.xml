@@ -8,22 +8,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:background="@drawable/mpolice"
+        android:background="@drawable/police"
         android:contentDescription="splash_image" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Mpolice"
+        android:text="@string/mpolice"
         android:textSize="43sp"
-        android:textAllCaps="true"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="#f00f0f"
+        android:textColor="#ffffff"
         android:id="@+id/textView"
-        android:layout_marginTop="200dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp" />
 
 </RelativeLayout>
