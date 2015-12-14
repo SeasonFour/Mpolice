@@ -35,7 +35,7 @@ public class ViolationsQuery extends AppCompatActivity {
         Log.d("mpolice","after recycler");
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Violations");
-        Log.d("mpolice", "after"  );
+        query.whereEqualTo("Number_plate","krt 674e");
         try {
             obj = query.find();
 
