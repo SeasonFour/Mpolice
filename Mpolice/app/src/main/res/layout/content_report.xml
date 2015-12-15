@@ -162,7 +162,7 @@
             android:id="@+id/reportBtn"
             android:layout_below="@+id/time"
             android:layout_centerHorizontal="true"
-            android:onClick="reportViolation" />
+            android:onClick="reportViolationClick" />
 
     </RelativeLayout>
 </ScrollView>

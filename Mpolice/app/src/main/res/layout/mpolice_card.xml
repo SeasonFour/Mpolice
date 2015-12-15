@@ -20,6 +20,7 @@
                 android:id="@+id/number_plate"
                 android:textSize="20sp"
                 android:autoText="false"
+                android:textAllCaps="true"
                 android:textColor="#ffffff" />
 
             <TextView
