@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
 
         android:background="@drawable/kenyapolice"
-        android:contentDescription="splash_image"
+        android:contentDescription="@string/policelogo"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true" />
 
