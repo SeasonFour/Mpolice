@@ -1,5 +1,7 @@
 package com.example.ibra.newproject;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +24,7 @@ public class AllViolations extends AppCompatActivity {
     List<String> description = new ArrayList<String>();
     List<String> owner = new ArrayList<String>();
     List<String> status = new ArrayList<String>();
+    ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +36,26 @@ public class AllViolations extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(getBaseContext());
         recyclerV.setLayoutManager(layoutManager);
         recyclerV.setHasFixedSize(true);
-        Log.d("mpolice","after recycler");
+        Log.d("mpolice", "after recycler");
 
-       getViolations();
+        new getViolations().execute();
     }
 
-    public void getViolations(){
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Violations");
+
+
+    public class getViolations extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(AllViolations.this);
+            pDialog.setMessage("Loading data");
+            pDialog.setIndeterminate(false);
+            pDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Violations");
         try {
             obj = query.find();
 
@@ -54,10 +70,19 @@ public class AllViolations extends AppCompatActivity {
             owner.add(obj.get(i).getString("Location"));
             status.add(obj.get(i).getString("Violation"));
         }
+            return null;
+        }
 
-        Log.d("mpolice", "before adapter");
-        recyclerV.setAdapter(new MpoliceAdapter(getApplicationContext(),number_plate,description,owner,status));
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
 
-        Log.d("mpolice", "after adapter");
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            recyclerV.setAdapter(new MpoliceAdapter(getApplicationContext(), number_plate, description, owner, status));
+            pDialog.cancel();
+        }
     }
 }
