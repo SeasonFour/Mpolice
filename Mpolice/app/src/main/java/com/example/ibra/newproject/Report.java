@@ -1,36 +1,54 @@
 package com.example.ibra.newproject;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
+import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class Report extends AppCompatActivity {
     EditText etViolationOther,etNumberPlate, etDescription,etLocation,etTime;
-    String violationType;
+    String violationOther;
     ParseObject obj;
     String Violation,Number_Plate, Description, Location, Time;
     RadioGroup rGroup;
 
     ParseUser currentUser;
     ProgressDialog pDialog;
+
+
+    private SimpleDateFormat myFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
+    private SlideDateTimeListener listener = new SlideDateTimeListener() {
+        @Override
+        public void onDateTimeSet(Date date) {
+            Toast.makeText(Report.this, myFormatter.format(date),Toast.LENGTH_SHORT).show();
+            Time = myFormatter.format(date);
+            etTime.setText(Time);
+        }
+
+        @Override
+        public void onDateTimeCancel() {
+            Toast.makeText(Report.this, "Cancelled",Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +91,26 @@ public class Report extends AppCompatActivity {
         }
     }
 
+    public void setTime(View v){
+        new SlideDateTimePicker.Builder(getSupportFragmentManager())
+                .setListener(listener)
+                .setInitialDate(new Date())
+                .build()
+                .show();
+    }
+
+
+
     public void reportViolationClick(View v){
-        //Violation = etViolationOther.getText().toString().trim();
+        violationOther = etViolationOther.getText().toString().trim();
         Number_Plate = etNumberPlate.getText().toString().trim();
         Description = etDescription.getText().toString();
         Location = etLocation.getText().toString();
-        Time = etTime.getText().toString();
+        //Time = etTime.getText().toString();
 
-        if (Violation.equals(null)){
+          if (Violation.equals(null)){
             Toast.makeText(getApplicationContext(),"Cant be null" ,Toast.LENGTH_SHORT).show();
+
         }else{
             new reportViolation().execute();
         }
