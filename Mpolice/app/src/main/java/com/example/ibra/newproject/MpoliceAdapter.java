@@ -36,16 +36,16 @@ public class MpoliceAdapter extends RecyclerView.Adapter<MpoliceAdapter.PoliceHo
 
     @Override
     public void onBindViewHolder(PoliceHolder holder, int i) {
-        holder.tv_number_plate.setText(number_plate.get(i));
-        holder.tv_description.setText(description.get(i));
-        holder.tv_owner.setText(owner.get(i));
-        holder.tv_status.setText(status.get(i));
+        holder.tv_number_plate.setText("Number plate: "+number_plate.get(i));
+        holder.tv_description.setText("Description of the car: "+description.get(i));
+        holder.tv_owner.setText("Car owner: "+owner.get(i));
+        holder.tv_status.setText("STATUS: "+status.get(i));
 
     }
 
     @Override
     public int getItemCount() {
-        Log.d("food adapter", "size: " + number_plate.size());
+        Log.d("police adapter", "size: " + number_plate.size());
         return number_plate.size();
     }
 

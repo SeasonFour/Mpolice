@@ -28,4 +28,6 @@
     <string name="parse_app_id">7uE5i8t1LBqdC3f5lmlsuCOaXgrZR4iBDtHXtVCO</string>
     <string name="parse_client_key">Uqp5HP8zWmKJB8S5N6EzhDzdL8rW6EVZ9emkEAeP</string>
     <string name="mpolice">M-POLICE</string>
+    <string name="policelogo">splash_image</string>
+    <string name="set_time">Set time</string>
 </resources>
