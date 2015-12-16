@@ -152,8 +152,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/time"
             android:layout_below="@+id/textView7"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignRight="@+id/textView5"
+            android:layout_alignEnd="@+id/textView5" />
 
         <Button
             android:layout_width="wrap_content"
@@ -162,7 +162,17 @@
             android:id="@+id/reportBtn"
             android:layout_below="@+id/time"
             android:layout_centerHorizontal="true"
-            android:onClick="reportViolation" />
+            android:onClick="reportViolationClick" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_time"
+            android:id="@+id/timeBtn"
+            android:layout_below="@+id/location"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="setTime" />
 
     </RelativeLayout>
 </ScrollView>

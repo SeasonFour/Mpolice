@@ -30,4 +30,6 @@
     <string name="mpolice">M-POLICE</string>
     <string name="search">search</string>
     <string name="search_title">Search violations</string>
+    <string name="policelogo">splash_image</string>
+    <string name="set_time">Set time</string>
 </resources>
