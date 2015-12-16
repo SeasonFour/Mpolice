@@ -21,11 +21,13 @@
     <string name="time_last_seen">Time last seen</string>
     <string name="title_activity_search_plate">SearchPlate</string>
     <string name="search_number_plate">Search number plate</string>
-    <string name="search">search icon</string>
+    <!--<string name="search">search icon</string>-->
     <string name="scan_number_plate">Scan number plate</string>
     <string name="owner">Owner</string>
     <string name="status">Status</string>
     <string name="parse_app_id">7uE5i8t1LBqdC3f5lmlsuCOaXgrZR4iBDtHXtVCO</string>
     <string name="parse_client_key">Uqp5HP8zWmKJB8S5N6EzhDzdL8rW6EVZ9emkEAeP</string>
     <string name="mpolice">M-POLICE</string>
+    <string name="search">search</string>
+    <string name="search_title">Search violations</string>
 </resources>

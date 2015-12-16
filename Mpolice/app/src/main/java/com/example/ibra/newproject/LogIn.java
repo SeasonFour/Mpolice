@@ -63,7 +63,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void done(ParseObject parseObject, ParseException e) {
                 if (e == null) {
-                    Intent i = new Intent(LogIn.this, SearchPlate.class);
+                    Intent i = new Intent(LogIn.this, Search.class);
                     startActivity(i);
 
                     int randomPIN = (int) ((Math.random() * 9000) + 1000);

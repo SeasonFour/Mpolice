@@ -71,8 +71,8 @@ public class Report extends AppCompatActivity {
                     Toast.makeText(getBaseContext(),
                             "Reporting violation successful",
                             Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(),SearchPlate.class);
-                    startActivity(i);
+                    /*Intent i = new Intent(getApplicationContext(),SearchPlate.class);
+                    startActivity(i);*/
                 }else {
                     Toast.makeText(getBaseContext(),
                             "Error.Reporting violation up not successful",
